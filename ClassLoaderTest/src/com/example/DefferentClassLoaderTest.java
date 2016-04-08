@@ -2,6 +2,9 @@ package com.example;
 
 import java.lang.reflect.Method;
 
+import com.example.myclassloader.FileSystemClassLoaderOneChilder;
+import com.example.myclassloader.FileSystemClassLoaderTwoChilder;
+
 public class DefferentClassLoaderTest {
 
 	/**
@@ -9,18 +12,18 @@ public class DefferentClassLoaderTest {
 	 * @param object
 	 */
 	public static void main(String[] args) {
-		new DefferentClassLoaderTest().testClassLoaderIdentity();
+		new DefferentClassLoaderTest().testClassIdentity();
 	}
 	
 
-	public void testClassLoaderIdentity(){
+	private void testClassLoaderIdentity(){
 		//获得类的相对路径   右键属性
 		String classDataRelativePath = "\\ClassLoaderTest\\src";
 //		classDataRelativePath = "D:\\HotFixBaseTest\\ClassLoaderTest\\src";
 		//初始化类加载器
 		FileSystemClassLoader fileSystemClassLoader1 = new FileSystemClassLoader(classDataRelativePath);
 		FileSystemClassLoader fileSystemClassLoader2 = new FileSystemClassLoader(classDataRelativePath);
-		String className = "com.example.Sample";
+		String className = "Sample";
 		
 		try {
 			//获得类加载器 加载的类
@@ -39,4 +42,26 @@ public class DefferentClassLoaderTest {
 			e.printStackTrace();
 		} 
 	}
+	
+	
+	private void testClassIdentity() { 
+		    String classDataRootPath = "F:\\HotFixBaseTest"; 
+		    FileSystemClassLoader fscl1 = new FileSystemClassLoaderOneChilder(classDataRootPath); 
+		    FileSystemClassLoader fscl2 = new FileSystemClassLoaderTwoChilder(classDataRootPath); 
+		    String className = "Sample"; 	
+		    try { 
+		        Class<?> class1 = fscl1.loadClass(className); 
+		        Object obj1 = class1.newInstance(); 
+		        Class<?> class2 = fscl2.loadClass(className); 
+		        Object obj2 = class2.newInstance(); 
+		        System.out.println("obj1="+obj1.getClass().getClassLoader().getClass().getName());
+		        System.out.println("obj2="+obj2.getClass().getClassLoader().getClass().getName());
+		        Method setSampleMethod = class1.getMethod("setSample", java.lang.Object.class); 
+		        setSampleMethod.invoke(obj1, obj2); 
+		        System.out.println("testClassIdentity");
+
+		    } catch (Exception e) { 
+		        e.printStackTrace(); 
+		    } 
+		 }
 }
