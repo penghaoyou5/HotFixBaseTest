@@ -1,0 +1,12 @@
+package com.example;
+
+public class DefferentClassLoaderTest {
+
+	/**
+	 * 用不同类加载器加载的类测试 是否是同一个类
+	 * @param object
+	 */
+	public static void main(String[] args) {
+		new Sample().testClassLoaderIdentity();
+	}
+}
