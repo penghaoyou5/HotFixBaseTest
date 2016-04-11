@@ -2,3 +2,6 @@
 /.recommenders
 /ZipApply/.settings/org.eclipse.jdt.core.prefs
 /ZipApply/.settings
+/ClassLoaderTest/.settings
+/FanBianYiTest/.settings
+/FanBianYiTest/bin
