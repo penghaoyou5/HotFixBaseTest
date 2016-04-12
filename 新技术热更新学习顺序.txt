@@ -4,7 +4,8 @@
 3.java 动态代理 ReflectTestDemo
 
 1.android 代理入门 （RuMen，生成dexjar源码）（RuMenTwo  调用dexjar源码）
-
+2.Android插件化基础  Demo地址 https://github.com/BlueBirdZhangHua/ClassLoaderDemo.git
+怎么获得R文件？？？
 
 //其他
 反编译 FanBianYiTest
