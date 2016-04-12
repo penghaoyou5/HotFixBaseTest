@@ -1,13 +1,14 @@
 package com.example.fanbianyitest;
 
+
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import net.youmi.android.AdManager;
 import net.youmi.android.spot.SpotManager;
 
 @SuppressWarnings("deprecation")
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 	Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
