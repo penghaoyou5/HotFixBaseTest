@@ -12,7 +12,16 @@ public class FileSystemClassLoader extends ClassLoader {
 
     public FileSystemClassLoader(String rootDir) { 
         this.rootDir = rootDir; 
-    } 
+    }
+
+	@SuppressWarnings("unused")
+	private void text() throws ClassNotFoundException {
+		Class.forName("");
+        Thread threadd = new Thread();
+        Thread  thread = Thread.currentThread();
+        thread.setContextClassLoader(null);
+        thread.getContextClassLoader();
+	} 
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException { 
